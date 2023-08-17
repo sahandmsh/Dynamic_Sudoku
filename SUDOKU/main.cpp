@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <bitset>
+#include <string>
 using namespace std;
 
 class sudoku{
