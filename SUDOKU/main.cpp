@@ -7,27 +7,18 @@ class sudoku{
     vector <vector <int>> input_board;
     int block_s;
 public:
-    sudoku(int);
-    void display();
+    sudoku(int,vector <vector <int>>);
+    void display(vector <vector <int>>);
     bool solve(vector <vector <int>>,int,int);
 };
-sudoku::sudoku(int block_s):block_s(block_s){
-//    input_board = vector <vector <int>> (block_s*block_s , vector<int> (block_s*block_s,0));
-    input_board = { {4,5,0,0,0,0,0,0,0},
-                    {0,0,2,0,7,0,6,3,0},
-                    {0,0,0,0,0,0,0,2,8},
-                    {0,0,0,9,5,0,0,0,0},
-                    {0,8,6,0,0,0,2,0,0},
-                    {0,2,0,6,0,0,7,5,0},
-                    {0,0,0,0,0,0,4,7,6},
-                    {0,7,0,0,4,5,0,0,0},
-                    {0,0,8,0,0,9,0,0,0},
-    };
+
+sudoku::sudoku(int block_s,vector <vector <int>> input_board):block_s(block_s), input_board(input_board){
     cout<<"INITIAL BOARD\n";
-    display();
+    display(input_board);
     solve(input_board,0,0);
 }
-void sudoku::display(){
+
+void sudoku::display(vector <vector <int>> board){
     int counter1 = 0, counter2 = 0;
     cout<<"\n ";
     for (int j =65;j<block_s*block_s+65;++j){
@@ -43,9 +34,14 @@ void sudoku::display(){
         counter2++;
         for (int j=0;j<block_s*block_s;++j){
             counter1++;
-            cout<<input_board[i][j];
-            if (counter1%block_s==0){cout<<" | ";}
-            else {cout<<"   ";}
+            cout<<board[i][j];
+            if (counter1%block_s==0){
+                string o = (board[i][j]<10) ? " | ": "| ";
+                cout<<o;
+            }
+            else {string o = (board[i][j]<10) ? "   ": "  ";
+                cout<<o;
+            }
         }
         cout<<static_cast<char>(counter2+96);
     }
@@ -56,9 +52,8 @@ void sudoku::display(){
 
 bool sudoku:: solve(vector <vector <int>> board,int row,int column){
     if (row>= block_s*block_s){
-        input_board = board;
         cout<<"SOLVED SUDOKU:\n";
-        display();
+        display(board);
         return true;
     }
     else if (board[row][column] != 0){
@@ -89,8 +84,8 @@ bool sudoku:: solve(vector <vector <int>> board,int row,int column){
             for (int i=0;i<block_s*block_s;++i){
                 if (!all_bits[i]){
                     board[row][column] = i+1;
-                    solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s));
-//                    if (solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s))==true){return true;}
+//                    solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s));  // generates all possible solutions
+                    if (solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s))==true){return true;}  // generates first solution found
                 }
             }
         }
@@ -98,11 +93,24 @@ bool sudoku:: solve(vector <vector <int>> board,int row,int column){
     return false;
 }
 
-
-
-
-
-
 int main() {
-    sudoku s(3);
+    vector <vector <int>> input_board =
+                  { {4,5,0,0,0,0,0,0,0},
+                    {0,0,2,0,7,0,6,3,0},
+                    {0,0,0,0,0,0,0,2,8},
+                    {0,0,0,9,5,0,0,0,0},
+                    {0,8,6,0,0,0,2,0,0},
+                    {0,2,0,6,0,0,7,5,0},
+                    {0,0,0,0,0,0,4,7,6},
+                    {0,7,0,0,4,5,0,0,0},
+                    {0,0,8,0,0,9,0,0,0},};
+    sudoku s3(3,input_board); // a 9*9 Sudoku example (the size of each block is 3*3)
+    
+    
+    input_board =
+                  { {1,2,0,0},
+                    {0,0,1,2},
+                    {0,3,0,0},
+                    {4,0,0,3},};
+    sudoku s2(2,input_board); // a 4*4 Sudoku example (the size of each block is 2*2)
 }
