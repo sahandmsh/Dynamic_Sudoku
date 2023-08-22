@@ -6,15 +6,18 @@ capable of solving Sudokus with any block size. The definition of block size is 
 * Each block is (block size)\*(block size), e.g., in the following the block size is 3, and the size of the board is (3\*3) \* (3\*3). It is noted that,
 each empty entry is shown with "0".
 
-![Screenshot 2023-08-22 at 10 12 46 AM](https://github.com/sahandmsh/Dynamic_Sudoku/assets/82970651/6c070202-4275-4e8b-9262-e121f2a39cd2)
+![Screenshot 2023-08-22 at 10 12 46 AM](https://github.com/sahandmsh/Dynamic_Sudoku/assets/82970651/cc238019-a4c8-42ba-be25-ca8849c9a57d)
+
 
 
 * The class Sudoku gets the block size, and a 2-d vector as inputs (2d- vector includes the initial values for the board):
-![Screenshot 2023-08-22 at 10 20 30 AM](https://github.com/sahandmsh/Dynamic_Sudoku/assets/82970651/4a825e61-28c3-4fd7-8307-ec82675d8870)
+![Screenshot 2023-08-22 at 10 20 30 AM](https://github.com/sahandmsh/Dynamic_Sudoku/assets/82970651/aca990fc-b4bb-47f8-8cc1-cdfee6df64c8)
+
 
 * The result for the example given above is:
 
-  ![Screenshot 2023-08-22 at 10 16 29 AM](https://github.com/sahandmsh/Dynamic_Sudoku/assets/82970651/2e7f8906-26ad-43dd-b443-9e300c31ab15)
+![Screenshot 2023-08-22 at 10 16 29 AM](https://github.com/sahandmsh/Dynamic_Sudoku/assets/82970651/bb959c8a-4e52-4242-9cd0-82bdfcb99dfe)
+
 
 
 
