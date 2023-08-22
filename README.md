@@ -15,3 +15,7 @@ each empty entry is shown with "0".
 * The result for the example given above is:
 
   ![Screenshot 2023-08-22 at 10 16 29 AM](https://github.com/sahandmsh/Dynamic_Sudoku/assets/82970651/2e7f8906-26ad-43dd-b443-9e300c31ab15)
+
+
+
+It is worth noting that backtracking is used to solve the Sudoku.
