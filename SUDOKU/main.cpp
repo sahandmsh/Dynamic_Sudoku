@@ -95,6 +95,7 @@ bool sudoku:: solve(vector <vector <int>> board,int row,int column){
 }
 
 int main() {
+    // EXAMPLE 1
     vector <vector <int>> input_board =
                   { {4,5,0,0,0,0,0,0,0},
                     {0,0,2,0,7,0,6,3,0},
@@ -106,8 +107,7 @@ int main() {
                     {0,7,0,0,4,5,0,0,0},
                     {0,0,8,0,0,9,0,0,0},};
     sudoku s3(3,input_board); // a 9*9 Sudoku example (the size of each block is 3*3)
-    
-    
+    // EXAMPLE 2
     input_board =
                   { {1,2,0,0},
                     {0,0,1,2},
