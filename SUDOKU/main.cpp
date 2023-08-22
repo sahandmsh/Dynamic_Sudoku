@@ -85,8 +85,8 @@ bool sudoku:: solve(vector <vector <int>> board,int row,int column){
             for (int i=0;i<block_s*block_s;++i){
                 if (!all_bits[i]){
                     board[row][column] = i+1;
-//                    solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s));  // generates all possible solutions
-                    if (solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s))==true){return true;}  // generates first solution found
+                   solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s));  // generates all possible solutions
+                    // if (solve(board, row+(column+1)/(block_s*block_s), (column+1)%(block_s*block_s))==true){return true;}  // generates first solution found
                 }
             }
         }
